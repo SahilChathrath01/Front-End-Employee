@@ -1,0 +1,109 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.body{
+
+  height: 900px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Courier New', Courier, monospace;
+  background: url(../../assets/img/login/nature-pictures-jhv8333xq7glv38h.jpg ) ;
+  box-shadow: 20px 20px 10px grey;
+  animation: slider 20s linear infinite ;
+}
+@keyframes  slider{
+  0%{
+  background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+    background: url(../../assets/img/login/5788.jpg);
+  }
+  30%{
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+    background: url(../../assets/img/login/521944_pictures-of-nature-scenery-wallpapers-mobile-kemecer-com_2560x1600_h.jpg);
+  }
+  60%{
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+    background: url(../../assets/img/login/1.jpg);
+  }
+  60%{
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+    background: url(../../assets/img/login/captivating-serenity-of-nature-az84444pbhuff9ks.jpg);
+  }
+  40%,100%{
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+    background: url(../../assets/img/login/Canada_Parks_Lake_448982.jpg)
+  }
+}
+
+form{
+  background-color: white;
+  width: 24%;
+  padding: 50px;
+  border-radius: 20px;
+
+}
+.btn2{
+  width: 100%;
+  border: none;
+ border-radius: 50px;
+ background-color: blueviolet;
+
+}
+
+
+.form-control{
+  color: rgba(0, 0, 0,.87);
+  border-bottom-color: rgba(0, 0, 0,.42) ;
+  box-shadow: none !important;
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 4px 4px 0 0;
+}
+.box-area{
+  position: relative;
+  top: 150px;
+  
+}
+
+h2{
+  font-weight: 700;
+  font-size: 2rem !important;
+  color: blueviolet;
+}
+.form-label{
+  font-family: 800 !important;
+}
+.img-fluid{
+  width: 80px;
+  height: 80px;
+  position: relative;
+  left: 99px;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width:780PX) {
+  form{
+    width: 100% !important;
+
+  }
+}
+@media only screen and (max-width:480PX) {
+  form{
+    width: 100% !important;
+  }
+
+
+
+}

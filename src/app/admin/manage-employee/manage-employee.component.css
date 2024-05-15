@@ -1,0 +1,205 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+    margin-right: .5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+::placeholder{
+    font-size: 20px;
+    color: black;
+}
+
+body {
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+    background-image: url(../../../assets/img/login/blue-smooth-wall-textured-background.jpg);
+    align-items: center;
+    background-size: cover;
+
+}
+
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+
+main.table {
+
+    width: 100%;
+    height: 80vh;
+    background-color: #f5f1f19f;
+    backdrop-filter: blur(7px);
+    box-shadow: 0.4rem .6rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.table_header {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(236, 230, 230, 0.267);
+    padding: .9rem 2rem;
+    overflow: auto;
+
+}
+.table_header::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.2rem;
+}
+
+.table_header::-webkit-scrollbar-thumb{
+    border-radius: 5rem;
+    background-color: white;
+    visibility: hidden;
+}
+
+
+
+.text-right {
+    position: relative;
+    left: 60rem;
+    bottom: 13px;
+}
+
+.page-header {
+    position: relative;
+    top: 40px;
+    background-color: blueviolet;
+}
+
+.table_body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table_body::-webkit-scrollbar-thumb {
+    border-radius: 5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table_body:hover:-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+.back {
+
+    position: relative;
+    top: 3.75rem;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-image: url(../../../assets/img/login/pikaso_texttoimage_35mm-film-photography-Majestic-sunset-over-towerin.jpeg);
+}
+
+.table_body {
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: rgba(254, 254, 254, 0.956);
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+}
+.input-group{
+   width: 70%;
+}
+table {
+    width: 100%;
+}
+
+thead th {
+    position: static;
+    top: 0;
+    left: 0;
+    background-color: #f5f1f19f;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(188, 248, 166, 0.333);
+}
+
+tbody tr:hover {
+    background-color: #fff6;
+}
+
+.status {
+    background-color: red;
+    padding: .4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.status.success {
+    background: #86E49D;
+    color: #006b21;
+}
+
+
+@media only screen and (max-width:1024px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+    .text-right {
+        position: relative;
+        left: 38rem;
+        bottom: 27px;
+        /* overflow: auto; */
+    }
+}
+@media only screen and (max-width:780px) {
+
+
+    .text-right {
+        position: relative;
+        /* left: 35rem; */
+        bottom: 38px;
+    }
+    .btn{
+        font-size: 12px;
+    }
+
+   
+}
+
+@media only screen and (max-width:480px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+
+    .text-right {
+        position: relative;
+        left: 14rem;
+        bottom: 33px;
+    }
+    .btn{
+        font-size: 12px;
+    }
+
+    .text-left {
+        position: relative;
+        right: 3rem;
+        /* bottom: 13px; */
+    }
+}
+
+.box-right {
+    width: 100%;
+    height: 10%;
+    position: relative;
+    left: 1300px;
+}

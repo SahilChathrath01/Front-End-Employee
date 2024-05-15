@@ -1,0 +1,78 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Employe Leave</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active text-white">Employe Leave</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<section class="d-flex align-item-center mb-5" style="background: url(../../../assets/img/login/5788.jpg);">
+
+    <div class="container d-flex justify-content:center;  align-item:center;  min-h-100  ">
+        <!-- ...................................Main Conatiner................................... -->
+        <div class="row  border shadow  rounded-5  p-3 box-area " style="background-color: white;">
+            <!-- .........................................LEFT BOX............................................... -->
+            <div class="col-md-6  rounded-4 d-flex justify-content:center flex-column left-box"
+                style="background-image: url(../../../assets/img/login/5788.jpg)">
+                <div class="fearued-img mb-3">
+
+                    <!-- <p class="text-white fs-2 text-center" -->
+                    <!-- style="font-family: 'Courier New', Courier, monospace; font-weight:700;">Be Verifed</p> -->
+                </div>
+            </div>
+            <!-- ..........................................RIGHT BOX............................................ -->
+            <div class="col-md-6  right-box">
+                <div class="row align-item-center">
+                    <div class="header-text mb-4">
+                        <h2>Leave page...</h2>
+                        <p>we are happy to have you back</p>
+                    </div>
+
+                    <form  [formGroup]="leaveForm" (submit)="submit()">
+                        <div class="row">
+                            <div class="col-md-3 input-group  mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6"
+                                    placeholder="Enter Name" formControlName="name">
+                            </div>
+
+                            <div class="col-md-3 input-group mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6 "
+                                    placeholder="department" formControlName="department">
+                            </div>
+
+                            <div class="col-md-4 input-group  mb-2">
+                                <textarea  id="" cols="60" rows="2" class="form-control form-control-lg bg-light fs-6 "     placeholder="Purpose of leave"></textarea>
+                                <!-- <input type="text" class="form-control form-control-lg bg-light fs-6 "
+                                 formControlName="message"> -->
+                            </div>
+
+
+                            <div class="row  mb-4">
+                                <div class="col-md-12">
+                                    <label for="form" class=" bg-light d-flex from-date ">Form Date</label>
+                                    <input type="date" id="form" class="form-control form-control-lg bg-light fs-6 "
+                                        placeholder="First name" aria-label="Form Date" formControlName="date1">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="form" class=" bg-light d-flex from-date ">To Date</label>
+                                    <input type="date" id="form" class="form-control form-control-lg bg-light fs-6 "
+                                        placeholder="First name" aria-label="To Date" formControlName="date2">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-lg   form-control btn-primary w-100 fs-6 " type="submit">Leave
+                                Now</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- ........................................................................................ -->
+        </div>
+    </div>
+</section>

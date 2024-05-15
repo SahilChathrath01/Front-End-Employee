@@ -1,0 +1,75 @@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Employe Attendance</h1>
+    <ol class="breadcrumb justify-content-center mb-2 p-1">
+        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
+        <li class="breadcrumb-item active text-white">Employe Attendance </li>
+    </ol>
+</div>
+<section class="back">
+    <main class="table">
+
+        <div class="search-bar">
+            <div class="modal-dialog ">
+                <div class="modal-content rounded-4">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group  mx-auto d-flex">
+                            <input type="search" class="py-2 border-2  form-control p-3"
+                                placeholder="Enter  Employe Name">
+                            <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="table_header">
+            <h3> Employe Attendance Detail</h3>
+        </section>
+        <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#Id</th>
+                        <th scope="col">Employe Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Desination</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">status</th>
+                        <th scope="col">Action</th>
+
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Anil</td>
+                        <td>Coding</td>
+                        <td>Project Manager</td>
+                        <td> $5000 </td>
+                        <td> <strong>$500</strong> </td>
+                        <td> <strong>Pending</strong> </td>
+                         <td> 
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm p-1" >
+                                    Presence
+                                  </button>
+                                  <button class="btn btn-warning btn-sm p-1" >
+                                    Absent
+                                  </button>
+                                  <button class="btn btn-danger btn-sm p-1" >
+                                    Holiday
+                                  </button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</section>

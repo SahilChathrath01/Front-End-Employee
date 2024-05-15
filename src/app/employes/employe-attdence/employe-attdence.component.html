@@ -1,0 +1,74 @@
+       <!-- Single Page Header start -->
+       <div class="container-fluid page-header py-5" >
+        <h1 class="text-center text-white display-6">Attdence Page</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active text-white">Attdence Page</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+<section class="back d-flex justify-content: center; mb-5 " style="background: url(../../../assets/img/login/5788.jpg);">
+    <div class="container   d-flex justify-content: center;  align-item-center min-h-100">
+        <div class="row border rounded-5   p-3   shadow box-area" style="background-color: white;">
+
+
+            <!-- ............F...............Left.............................. -->
+
+            <div class=" col-md-6 rounded-4 d-flex   justify-content: center;  align-item-center  flex-column left-box"
+                style="background: url(../../../assets/img/login/5788.jpg);">
+
+                <div class="featured-image mb-3">
+                    <img width="600px" class="img-fluid"
+                        src="../../assets/img/login/1.png"
+                        alt="">
+                </div>
+
+                <p class="text-white fs-2 text-center"
+                    style="font-family: 'Courier New', Courier, monospace; font-weight:700;">Be Verifed</p>
+              
+            </div>
+
+            <!-- ...............................Rigth....................................... -->
+            <div class="col-md-6 right-box ">
+                <div class="row  align-item-center">
+                    <div class="header-text mb-4">
+                        <h2>Attdendance Now...</h2>
+                        <p>we are happy to have you back</p>
+                    </div>
+
+                    <form [formGroup]="attdenceForm" (submit)="submit()">
+                        <div class="row">
+                            <div class="col-md-3 input-group  mb-2">
+                              <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Enter Name" formControlName="name">
+                            </div>
+                            <div class="col-md-3 input-group mb-2">
+                              <input type="email" class="form-control form-control-lg bg-light fs-6 " placeholder="Email" formControlName="email" >
+                            </div>
+
+                            <div class="col-md-4 input-group  mb-2">
+                                <input type="text" class="form-control  bg-light  fs-6 "  placeholder="Department" formControlName="department">
+                              </div>
+
+                              <div class="col-md-4 input-group  mb-2">
+                                <input type="text" class="form-control  bg-light  fs-6 "  placeholder="Desination" formControlName="desination">
+                              </div>
+
+                          <div class="col-md-4 input-group  mb-2">
+                            <input type="time" class="form-control  bg-light  fs-6 "  placeholder="First name" formControlName="time" >
+                          </div>
+                      
+                        </div>
+                        <div class="input-group mb-3">
+                            <button    class="btn btn-lg   form-control btn-primary w-100 fs-6 "type="submit" >Attdence Now</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+

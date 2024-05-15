@@ -1,0 +1,147 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+  <h1 class="text-center text-white display-6">View Profile</h1>
+  <ol class="breadcrumb justify-content-center mb-0">
+      <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+      <li class="breadcrumb-item  text-white">View Profile</li>
+  </ol>
+</div>
+<!-- Single Page Header End -->
+<section class="back d-flex justify-content: center; mb-5 "
+  style="background-image: url(../../../../assets/img/login/521944_pictures-of-nature-scenery-wallpapers-mobile-kemecer-com_2560x1600_h.jpg);">
+  
+  <div class="container d-flex justify-content:center; align-item-center; min-h-100">
+      <div class="row border shadow rounded-5 p-3 box-area" style="background-color: white;">
+
+          <!-- ............F...............Left.............................. -->
+
+          <!-- ............F...............right.............................. -->
+          <div class="col-md-12 right-box back2  ">
+              <div class="row  align-item-center border box-right-area">
+                  <div class="header-text mb-4">
+                      <h2 class="text-white">View Profile...</h2>
+                      <p class="text-white">we are happy to have you back</p>
+                  </div>
+
+                  <form [formGroup]="multistep" (submit)="submit()">
+                      <div class="row d-flex shadow ">
+                          <div class="personal " *ngIf="step == 1" formGroupName="Personal">
+                              <div class="row">
+                                  <h4 class="text-white mb-2">Personal Details</h4>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Name" formControlName="name">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Email" formControlName="email">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Gender" formControlName="gender">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Address" formControlName="address">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Phone" formControlName="phone">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Age" formControlName="age">
+                                  </div>
+                              </div>
+
+                          </div>
+
+                          <div class="employe-details" *ngIf="step == 2" formGroupName="employedetails">
+                              <div class="row">
+                                  <h4 class="text-white mb-1">Employe Details</h4>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
+                                          placeholder="Joine Date" formControlName="joindate">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
+                                          placeholder="Education" formControlName="education">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
+                                          placeholder="Experience" formControlName="experience">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder=" Desination" formControlName="desination">
+                                  </div>
+                                  <div class="col-md-12">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Hired Location" formControlName="hiredlocation">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="bank-details" *ngIf="step == 3" formGroupName="bankdetails">
+                              <div class="row">
+                                  <h4 class="text-white mb-1">Bank Details</h4>
+                                  <div class="col-md-6">
+                                      <input type="text" class=" w-100 form-control border-2 py-2 mb-4"
+                                          placeholder="Account Holder" formControlName="accountholder">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
+                                          placeholder="Bank Name" formControlName="bankname">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" placeholder="Bank Branch"
+                                          class="w-100 form-control mb-4 py-2 border-2 " formControlName="bankbranch">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text " placeholder="IFSC CODE"
+                                          class="form-control border-2 py-2 mb-4 " formControlName="ifsccode">
+                                  </div>
+                                  <div class="col-md-6">
+
+                                      <input type="text" placeholder="Account Number" formControlName="accountnumber"
+                                          class="border-2 py-2 mb-4 form-control">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <input type="text" placeholder="Conform Account Number"
+                                          formControlName="conformAccountNumber" class="border-2 py-2 mb-4 form-control">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="input-group  mb-3 ">
+                              <div class="row ">
+                                  <div class="btn-group btn-group-lg " role="group" >
+                                      <button type="button" class="btn btn-outline-primary" *ngIf="step != 1"
+                                          (click)="pervious()">Pervious</button>
+                                      <button type="submit" class="btn btn-outline-primary"
+                                          *ngIf="step != 3">Next</button>
+                                    
+                                          <button type="submit" class="btn btn-outline-primary"
+                                          disabled  > View</button>
+                                  </div>
+                                  
+                              </div>
+
+                          </div>
+
+                      </div>
+                      <!-- <pre class="text-white">
+                          {{multistep.value | json}}
+                      </pre> -->
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

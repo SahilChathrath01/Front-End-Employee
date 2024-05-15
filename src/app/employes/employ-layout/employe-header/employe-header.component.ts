@@ -1,0 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/EmployeServices/auth/auth-service.service';
+
+@Component({
+  selector: 'app-employe-header',
+  templateUrl: './employe-header.component.html',
+  styleUrls: ['./employe-header.component.css']
+})
+export class EmployeHeaderComponent implements OnInit {
+  islogin: boolean = false
+  constructor(private authservice: AuthServiceService, private router: Router) { }
+  ngOnInit(): void {
+    this.checklogin()
+  }
+  checklogin() {
+    if (this.authservice.getdata() !== null) {
+      this.islogin = true
+    }
+    else {
+      this.islogin = false
+    }
+  }
+
+  logout(){
+    this.authservice.cleardata()
+    this.router.navigateByUrl("/login")
+  }
+}

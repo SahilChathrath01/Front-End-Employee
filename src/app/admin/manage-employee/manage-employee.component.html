@@ -1,0 +1,116 @@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6"> Manage Employe </h1>
+    <ol class="breadcrumb justify-content-center mb-2">
+        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
+        <li class="breadcrumb-item active text-white"> Manage Employe  </li>
+    </ol>
+</div>
+
+<section class="back">
+    <main class="table">
+    
+        <div class="search-bar">
+            <div class="modal-dialog ">
+                <div class="modal-content rounded-4">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group  mx-auto d-flex" >
+                            <input type="search" class="py-2 border-2  form-control p-3" placeholder="Enter  Employe Name">
+                            <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="table_header">
+            <div class="container d-flex shadow border-2 flex-column; justify-content:center">
+                
+                <div class="row col-lg-12">
+                    <div class="col-lg-6 text-left">
+                        <h3>Employe Details</h3>
+                    </div>
+                        <!-- Modal Search Start -->
+
+        <!-- Modal Search End -->
+                    <div class="col-lg-6 text-right ">
+                        <button type="submit" routerLink="/admin-layout/add-employee" class="btn btn-primary p-2">Add Employe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="table_body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#Id</th>
+                        <th scope="col">Employe Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Desination</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Experinence</th>
+                        <th scope="col">Join Date</th>
+                        <th scope="col">Hired Address</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Account Holder</th>
+                        <th scope="col">Bank</th>
+                        <th scope="col">Bank Branch</th>
+                        <th scope="col">IFSC</th>
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Anil</td>
+                        <td>Coding</td>
+                        <td>Project Manager</td>
+                        <td> anil@gmail.com </td>
+                        <td> <strong>Male</strong> </td>
+                        <td> <strong>911565328</strong> </td>
+                        <td> <strong>WM/3B1</strong> </td>
+                        <td> <strong>Jalandhar</strong> </td>
+                        <td> <strong>Punjab</strong> </td>
+                        <td> <strong>4 year</strong> </td>
+                        <td> <strong>04/02/22</strong> </td>
+
+                        <td> O7 services It comapany </td>
+                        <td>22</td>
+                        <td>Anil</td>
+                        <td> <strong>HDFC</strong> </td>
+                        <td> <strong>Basti Guzan</strong> </td>
+                        <td> <strong>HDFC100</strong> </td>
+                        <td> <strong>0212194689</strong> </td>
+                        <td> <strong>Presence</strong> </td>
+                        <td>
+                            <div class="btn-group">
+                                <button routerLink="/admin-layout/update-employee" class="btn btn-success btn-sm  p-2" >
+                                    Edit
+                                 </button>
+                                 <button class="btn btn-danger btn-sm p-1" >
+                                   Delete
+                                 </button>
+                             
+                            </div>
+                         
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </section>
+    </main>
+</section>

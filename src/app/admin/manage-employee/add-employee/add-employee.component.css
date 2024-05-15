@@ -1,0 +1,134 @@
+.page-header {
+    position: relative;
+      top: 30px;
+      background-color: blueviolet;
+  }
+  
+  
+  .box-right-area{
+      
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(45, 44, 44, 0.635);
+      border-radius: 20px;
+  
+  }
+  .back2{
+      background: url(../../../../assets/img/login/pikaso_texttoimage_35mm-film-photography-Majestic-sunset-over-towerin.jpeg);
+  
+  }
+  .back{
+      background-size: cover;
+      background-position: center;
+  }
+  .left-box{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url(../../../../assets/img/login/5788.jpg);
+  }
+  ::placeholder{
+      font-size: 20px;
+      color: #000;
+  }
+  .featured-image{
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(45, 44, 44, 0.635);
+  
+  }
+  *{
+      box-sizing: border-box;
+      list-style: none;
+  }
+  .btn {
+    position: relative;
+    /* left: 150px; */
+    width: 280px;
+  }
+  
+  body{
+      font-family: 'Courier New', Courier, monospace;
+      background-color:#ececec;
+  }
+  .right-box{
+      padding: 40px 30px 40px 40px;
+  }
+  .invalid-text{
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+    font-size: 24px;
+
+  }
+  .box-area{
+      width: 980px;
+      position: relative;
+      top: 10px;
+  }
+  
+  
+  @media only screen and (max-width:780px) {
+      .box-area{
+        margin: 0 10px;
+      }
+      .left-box{
+        height: 100px;
+        overflow: hidden;
+        background-attachment: scroll;
+      }
+  
+      .right-box{
+        padding: 10px;
+      }
+      .btn {
+        position: relative;
+        /* left: 150px; */
+        width:100%;
+      }
+    
+    }
+    @media only screen and (max-width:480px) {
+      .box-area{
+        min-width: 100%;  
+        margin: 0 0px 10px;
+      }
+      .left-box{
+        height: 100px;
+        overflow: hidden;
+      }
+     
+  
+      .right-box{
+        padding: 10px;
+      }
+    
+    }
+  
+  
+   .profile ul li a {
+      color: darkgray;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 20px;
+      border: 1px solid rgba(236, 240, 241, 0.3);
+      text-align: left;
+      padding: 5px 8px;
+      display: block;
+  }
+  
+  main .account-page .profile ul li a span {
+      float: right;
+      color: black;
+  }
+  
+  .active,
+  .profile ul li a:hover {
+  
+      color: rgb(233, 242, 233) !important;
+      background-color: #888888;
+  }
+  
+  
+   
+  
