@@ -28,6 +28,11 @@
                     <div class="header-text mb-4">
                         <h2>Leave page...</h2>
                         <p>we are happy to have you back</p>
+                        <div class="btn-group">
+                            <!-- <label for="btn" class="py-1 mb-1 border-3 shadow fs-6 form-control">Status:{{leavedata.status}}</label>
+                            <p id="btn"  class="btn btn-sm  py-1 mb-1 border-3 shadow p-1 fs-6    form-control btn-primary  " ></p> -->
+
+                        </div>
                     </div>
 
                     <form  [formGroup]="leaveForm" (submit)="submit()">
@@ -36,29 +41,39 @@
                                 <input type="text" class="form-control form-control-lg bg-light fs-6"
                                     placeholder="Enter Name" formControlName="name">
                             </div>
+                            
+                            <div class="col-md-3 input-group mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6 "
+                                    placeholder="Email" formControlName="email">
+                            </div>
 
                             <div class="col-md-3 input-group mb-3">
                                 <input type="text" class="form-control form-control-lg bg-light fs-6 "
                                     placeholder="department" formControlName="department">
                             </div>
 
+                            <div class="col-md-3 input-group mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6 "
+                                    placeholder="Designation" formControlName="desination">
+                            </div>
                             <div class="col-md-4 input-group  mb-2">
-                                <textarea  id="" cols="60" rows="2" class="form-control form-control-lg bg-light fs-6 "     placeholder="Purpose of leave"></textarea>
+                                <textarea  id="" cols="60" rows="2" class="form-control form-control-lg bg-light fs-6 "    formControlName="message"  placeholder="Purpose of leave"></textarea>
                                 <!-- <input type="text" class="form-control form-control-lg bg-light fs-6 "
-                                 formControlName="message"> -->
+                                > -->
                             </div>
 
 
                             <div class="row  mb-4">
-                                <div class="col-md-12">
-                                    <label for="form" class=" bg-light d-flex from-date ">Form Date</label>
-                                    <input type="date" id="form" class="form-control form-control-lg bg-light fs-6 "
-                                        placeholder="First name" aria-label="Form Date" formControlName="date1">
-                                </div>
+                         
                                 <div class="col-md-12">
                                     <label for="form" class=" bg-light d-flex from-date ">To Date</label>
-                                    <input type="date" id="form" class="form-control form-control-lg bg-light fs-6 "
-                                        placeholder="First name" aria-label="To Date" formControlName="date2">
+                                    <input type="date" id="form" class="form-control form-control-lg bg-light p-1 "
+                                        placeholder="First name" aria-label="To Date" formControlName="todate">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="form" class=" bg-light d-flex from-date ">Form Date</label>
+                                    <input type="date" id="form" class="form-control form-control-lg bg-light p-1 "
+                                        placeholder="First name" aria-label="Form Date" formControlName="fromdate">
                                 </div>
                             </div>
 

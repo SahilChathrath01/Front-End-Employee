@@ -51,6 +51,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <small class="text-white align-item-center d-flex border-2 invalid-text "
+                                                *ngIf="multistep.controls['password'].invalid && multistep.controls['password'].touched">Password
+                                                Required</small>
+                                            <input type="password" class="w-100 form-control border-2 py-2 mb-4"
+                                                placeholder="Password" formControlName="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <small class="text-white align-item-center d-flex border-2 invalid-text "
                                                 *ngIf="multistep.controls['gender'].invalid && multistep.controls['gender'].touched">Gender
                                                 Required</small>
                                             <input type="text" class="w-100 form-control border-2 py-2 mb-4"
@@ -78,15 +87,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <small class="text-white align-item-center d-flex border-2 invalid-text "
-                                                *ngIf="multistep.controls['age'].invalid && multistep.controls['age'].touched">Age
-                                                Required</small>
-                                            <input type="text" class="w-100 form-control border-2 py-2 mb-4"
-                                                placeholder="Age" formControlName="age">
-                                        </div>
-                                    </div>
+                                   
                                 </div>
 
                             </div>
@@ -96,14 +97,12 @@
                                     <h4 class="text-white mb-1">Employe Details</h4>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <span class=""
-                                                *ngIf="multistep.controls['joindate'].invalid  && multistep.controls['joindate'].touched">
-                                               <p> joindate Required</p>
-                                            </span>
-                                            <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
-                                                placeholder="Joine Date" formControlName="joindate">
+                                            <small class="text-white align-item-center d-flex border-2 invalid-text "
+                                                *ngIf="multistep.controls['age'].invalid && multistep.controls['age'].touched">Age
+                                                Required</small>
+                                            <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                                placeholder="Age" formControlName="age">
                                         </div>
-
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -128,21 +127,31 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['desination'].invalid  && multistep.controls['desination'].touched">
+                                                *ngIf="multistep.controls['designation'].invalid  && multistep.controls['designation'].touched">
                                                 <p>Desination Required</p>
                                             </span>
                                             <input type="text" class="w-100 form-control border-2 py-2 mb-4"
-                                                placeholder=" Desination" formControlName="desination">
+                                                placeholder=" Designation" formControlName="designation">
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['hiredlocation'].invalid  && multistep.controls['hiredlocation'].touched">
+                                                *ngIf="multistep.controls['designation'].invalid  && multistep.controls['designation'].touched">
+                                                <p>Department Required</p>
+                                            </span>
+                                            <input type="text" class="w-100 form-control border-2 py-2 mb-4"
+                                                placeholder=" Department" formControlName="department">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['hiredAddress'].invalid  && multistep.controls['hiredAddress'].touched">
                                                 <p>Hired Location Required</p>
                                             </span>
                                             <input type="text" class="w-100 form-control border-2 py-2 mb-4"
-                                                placeholder="Hired Location" formControlName="hiredlocation">
+                                                placeholder="Hired Location" formControlName="hiredAddress">
                                         </div>
                                     </div>
                                 </div>
@@ -154,61 +163,101 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['accountholder'].invalid  && multistep.controls['accountholder'].touched">
+                                                *ngIf="multistep.controls['accountHolder'].invalid  && multistep.controls['accountHolder'].touched">
                                                 <p>Account Holder Required</p>
                                             </span>
                                             <input type="text" class=" w-100 form-control border-2 py-2 mb-4"
-                                                placeholder="Account Holder" formControlName="accountholder">
+                                                placeholder="Account Holder" formControlName="accountHolder">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['bankname'].invalid  && multistep.controls['bankname'].touched">
+                                                *ngIf="multistep.controls['bankName'].invalid  && multistep.controls['bankName'].touched">
                                                 <p>Bank Name Required </p>
                                             </span>
                                             <input type="text" class="w-100 form-control border-2 py-2 mb-4 "
-                                                placeholder="Bank Name" formControlName="bankname">
+                                                placeholder="Bank Name" formControlName="bankName">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['bankbranch'].invalid  && multistep.controls['bankbranch'].touched">
+                                                *ngIf="multistep.controls['bankBranch'].invalid  && multistep.controls['bankBranch'].touched">
                                                 <p>Bank Branch Required</p>
                                             </span>
                                             <input type="text" placeholder="Bank Branch"
                                                 class="w-100 form-control mb-4 py-2 border-2 "
-                                                formControlName="bankbranch">
+                                                formControlName="bankBranch">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['ifsccode'].invalid  && multistep.controls['ifsccode'].touched">
+                                                *ngIf="multistep.controls['ifscCode'].invalid  && multistep.controls['ifscCode'].touched">
                                                 <p>IFSC Code Required</p>
                                             </span>
                                             <input type="text " placeholder="IFSC CODE"
-                                                class="form-control border-2 py-2 mb-4 " formControlName="ifsccode">
+                                                class="form-control border-2 py-2 mb-4 " formControlName="ifscCode">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['accountnumber'].invalid  && multistep.controls['accountnumber'].touched">
+                                                *ngIf="multistep.controls['accountNumber'].invalid  && multistep.controls['accountNumber'].touched">
                                                 <p> Account Number Required</p>
                                             </span>
                                             <input type="text" placeholder="Account Number"
-                                                formControlName="accountnumber" class="border-2 py-2 mb-4 form-control">
+                                                formControlName="accountNumber" class="border-2 py-2 mb-4 form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['city'].invalid  && multistep.controls['city'].touched">
+                                                <p> City Required</p>
+                                            </span>
+                                            <input type="text" placeholder="city "
+                                                formControlName="city" class="border-2 py-2 mb-4 form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['state'].invalid  && multistep.controls['state'].touched">
+                                                <p> State Required</p>
+                                            </span>
+                                            <input type="text" placeholder="State "
+                                                formControlName="state" class="border-2 py-2 mb-4 form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['pinCode'].invalid  && multistep.controls['pinCode'].touched">
+                                                <p> PinCode Required</p>
+                                            </span>
+                                            <input type="text" placeholder="PinCode"
+                                                formControlName="pinCode" class="border-2 py-2 mb-4 form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['panCard'].invalid  && multistep.controls['panCard'].touched">
+                                                <p> PinCode Required</p>
+                                            </span>
+                                            <input type="text" placeholder="PanCard"
+                                                formControlName="panCard" class="border-2 py-2 mb-4 form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <input type="text" placeholder="Conform Account Number"
-                                            formControlName="conformAccountNumber"
+                                            formControlName="confirmAccountNumber"
                                             class="border-2 py-2 mb-4 form-control">
 
                                     </div>
@@ -219,11 +268,11 @@
                                     <div class="btn-group btn-group-lg " role="group">
                                         <button type="button" class="btn btn-outline-primary" *ngIf="steper != 1"
                                             (click)="pervious()">Pervious</button>
-                                        <button type="submit" class="btn btn-outline-primary"
-                                            *ngIf="steper != 3">Next</button>
+                                        <button type="button" class="btn btn-outline-primary"
+                                        (click)="next()"   *ngIf="steper != 3">Next</button>
 
                                         <button type="submit" class="btn btn-outline-primary"
-                                            [disabled]="multistep.invalid"> Submit</button>
+                                          [disabled]="multistep.invalid"> Submit</button>
                                     </div>
 
                                 </div>

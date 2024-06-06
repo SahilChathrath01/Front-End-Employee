@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { EmployeeServicesService } from 'src/app/EmployeServices/Employee/employee-services.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -8,41 +11,109 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent {
-  constructor(private router : Router){}
+  userdata: any
   step: any = 1;
-  multistep = new FormGroup({
-    Personal: new FormGroup({
-      name: new FormControl("",[Validators.required,Validators.nullValidator]),
-      email: new FormControl("",[Validators.required,Validators.nullValidator]),
-      gender: new FormControl("",[Validators.required,Validators.nullValidator]),
-      address: new FormControl("",[Validators.required,Validators.nullValidator]),
-      phone: new FormControl("",[Validators.required,Validators.nullValidator]),
-      age: new FormControl("",[Validators.required,Validators.nullValidator]),
-    }),
-    employedetails: new FormGroup({
-      joindate: new FormControl("",[Validators.required,Validators.nullValidator]),
-      education: new FormControl("",[Validators.required,Validators.nullValidator]),
-      experience: new FormControl("",[Validators.required,Validators.nullValidator]),
-      desination: new FormControl("",[Validators.required,Validators.nullValidator]),
-      hiredlocation: new FormControl("",[Validators.required,Validators.nullValidator]),
-    }),
-    bankdetails: new FormGroup({
-      accountholder: new FormControl("",[Validators.required,Validators.nullValidator,]),
-      bankname: new FormControl("",[Validators.required,Validators.nullValidator]),
-      ifsccode: new FormControl("",[Validators.required,Validators.nullValidator]),
-      bankbranch: new FormControl("",[Validators.required,Validators.nullValidator]),
-      accountnumber: new FormControl("",[Validators.required,Validators.nullValidator]),
-      conformAccountNumber: new FormControl("",[Validators.required,Validators.nullValidator]),
-    })
+  profileform = new FormGroup({
+    _id: new FormControl("", [Validators.required]),
+    name: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    gender: new FormControl("", [Validators.required]),
+    address: new FormControl("", [Validators.required]),
+    phone: new FormControl("", [Validators.required]),
+
+    age: new FormControl("", [Validators.required]),
+    education: new FormControl("", [Validators.required]),
+    experience: new FormControl("", [Validators.required]),
+    designation: new FormControl("", [Validators.required]),
+    department: new FormControl("", [Validators.required]),
+    hiredAddress: new FormControl("", [Validators.required]),
+
+
+    accountHolder: new FormControl("", [Validators.required,]),
+    bankName: new FormControl("", [Validators.required,]),
+    ifscCode: new FormControl("", [Validators.required,]),
+    bankBranch: new FormControl("", [Validators.required,]),
+    accountNumber: new FormControl("", [Validators.required,]),
+    city: new FormControl("", [Validators.required,]),
+    state: new FormControl("", [Validators.required,]),
+    pinCode: new FormControl("", [Validators.required,]),
+    panCard: new FormControl("", [Validators.required,]),
 
   })
-  
+  employee: any[] = [];
+  constructor(
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+    private employe: EmployeeServicesService,
+    private router: Router) { }
+
+
+  ngOnInit(): void {
+    this.userdata = JSON.parse(sessionStorage.getItem('userdata') ?? '')
+    this.profileform.patchValue({ _id: this.userdata._id })
+    this.view_Profile()
+  }
+
+  view_Profile() {
+    let employeData: any = {}
+    this.spinner.show()
+    this.employe.single({ _id: this.profileform.value._id }).subscribe({
+      next: ((result: any) => {
+        if (result.success) {
+          employeData = result.data
+          this.profileform.patchValue({
+            name: employeData.name,
+            _id: this.userdata._id,
+            email: employeData.email,
+            gender: employeData.gender,
+            phone: employeData.phone,
+            address: employeData.address,
+            age: employeData.age,
+
+            department: employeData.department,
+            education: employeData.education,
+            experience: employeData.experience,
+            designation: employeData.designation,
+            hiredAddress: employeData.hiredAddress,
+
+            accountHolder: employeData.accountHolder,
+            bankName: employeData.bankName,
+            bankBranch: employeData.bankBranch,
+            ifscCode: employeData.ifscCode,
+            accountNumber: employeData.accountNumber,
+            city: employeData.city,
+            state: employeData.state,
+            panCard: employeData.panCard,
+            pinCode: employeData.pinCode
+
+          })
+        }
+        else {
+          this.toastr.error(result.message)
+        }
+      }),
+      error: ((err: any) => {
+        this.spinner.hide()
+        this.toastr.error(err, "Error occured", err)
+      }),
+      complete: (() => {
+        this.spinner.hide()
+
+      })
+    })
+
+
+  }
+
   submit() {
-   this.step = this.step + 1
   }
 
   pervious() {
     this.step = this.step - 1
+  }
+  next() {
+    this.step = this.step + 1
+
   }
 }
 

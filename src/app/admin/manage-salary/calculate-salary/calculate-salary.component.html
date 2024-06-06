@@ -19,43 +19,64 @@
                 <p class="text-white text-center side-text fs-6" style="font-family: 'Courier New', Courier, monospace;">Be Verifed</p>
             </div>
 
-            <div class="col-lg-6 shadow border  right-box">
+            <div class="col-lg-6 shadow1 border-2  right-box">
                 <div class="header mb-4">
                     <h2>Calculate  Salary</h2>
                     <p>we are happy to have you back</p>
                 </div>
                 <div class="row align-item-center">
-                  <form action="">
+                  <form [formGroup]="calculateForm" (submit)="submit()">
                     <div class="row g-3">
+                      <div class="col-md-6">
+                        <input type="text" class="form-control bg-light  py-2 border " placeholder="Name" formControlName="name">
+                      </div>
+                      <div class="col-md-6">
+                        <input type="email" class="form-control bg-light  py-2 border " placeholder="email" formControlName="email">
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control bg-light  py-2 border " placeholder="Designation" formControlName="designation">
+                      </div>
                         <div class="col-md-6">
-                          <input type="text" class="form-control bg-light  py-2 border " placeholder="Basic Salary" aria-label="Basic Salary">
+                          <input type="text" class="form-control bg-light  py-2 border " placeholder="Basic Salary" formControlName="bSalary">
                         </div>
                         <div class="col-md-6">
-                          <input type="text" class="form-control bg-light  py-2 border " placeholder="Dearness Allowance" aria-label="DA">
+                          <input type="text" class="form-control bg-light  py-2 border " placeholder="DA" formControlName="da">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control bg-light  py-2 border " placeholder=" “House Rent Allowance.” " aria-label="Basic Salary">
+                            <input type="text" class="form-control bg-light  py-2 border " placeholder=" HRA. " formControlName="hra">
                           </div>
                           <div class="col-md-6">
-                            <input type="text" class="form-control  bg-light py-2 border " placeholder="Provident Fund" aria-label="DA">
+                            <input type="text" class="form-control  bg-light py-2 border " placeholder="PF" formControlName="pf">
                           </div>
                           <div class="col-md-6">
-                            <input type="text" class="form-control  bg-light py-2 border " placeholder=" Employees' Provident Fund " aria-label="Basic Salary">
+                            <input type="text" class="form-control  bg-light py-2 border " placeholder=" HAAF PF " formControlName="haafPf">
                           </div>
                           <div class="col-md-6">
-                            <input type="text" class="form-control bg-light py-2 border  " placeholder="LIC" aria-label="DA">
-                          </div>
-                          <div class="col-md-6">
-                            <input type="text" class="form-control bg-light py-2 border  " placeholder=" Total Days" aria-label="DA">
-                          </div>
-                          <div class="col-md-6">
-                            <input type="text" class="form-control bg-light py-2 border  " placeholder=" Total Absent" aria-label="DA">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder="LIC" formControlName="lic">
                           </div>
                           <div class="col-md-12">
-                            <input type="text" class="form-control bg-light  py-2 border mb-2  " disabled   placeholder=" Net Salary" aria-label="DA">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder="Total Duction" formControlName="totalDuction">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder=" Total Days" formControlName="totalday">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder=" Total Presence" formControlName="Totalpresence">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder="Advanced Salary" formControlName="advanceSalary">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control bg-light py-2 border  " placeholder="Gsalary"  formControlName="Gsalary">
+                          </div>
+                          <div class="col-md-12">
+                            <input type="text" class="form-control bg-light  py-2 border mb-2  "    placeholder=" Net Salary" aria-label="DA" formControlName="netSalary">
+                          </div>
+                          <div class="col-md-12">
+                            <input type="text" class="form-control bg-light  py-2 border mb-2  "   placeholder=" In hand Salary" aria-label="DA" formControlName="inHandSalary">
                           </div>
                           <div class="col">
-                            <button type="submit" class="btn btn-primary w-100 fs-6  py-2 border mb-2 ">Calculate</button>
+                            <button type="submit" class="btn btn-primary w-100 fs-6  py-2 border mb-2 " >Calculate</button>
                           </div>
                       </div>
                   </form>

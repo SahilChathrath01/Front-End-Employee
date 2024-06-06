@@ -14,7 +14,7 @@
                 <div class="modal-content rounded-4">
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group  mx-auto d-flex" >
-                            <input type="search" class="py-2 border-2  form-control p-3" placeholder="Enter  Employe Name">
+                            <input type="search" class="py-2 border-2  form-control p-3" placeholder="Enter  Employe Name" [(ngModel)]="searchText">
                             <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
                             <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
                         </div>
@@ -22,19 +22,19 @@
                 </div>
             </div>
         </div>
-        <section class="table_header">
-            <div class="container d-flex shadow border-2 flex-column; justify-content:center">
+        <section class="table_header  ">
+            <div class="container-fluid body-part d-flex  flex-column; justify-content:center ">
                 
-                <div class="row col-lg-12">
-                    <div class="col-lg-6 text-left">
-                        <h3>Employe Details</h3>
+                <div class="row col-lg-12 p-1 " >
+                    
+                    <div class="col-md-6 text-left ">
+                        <h3 >Employe Details</h3>
                     </div>
-                        <!-- Modal Search Start -->
-
-        <!-- Modal Search End -->
-                    <div class="col-lg-6 text-right ">
+                  
+                    <div class="col-md-6 text-right  border-2 ">
                         <button type="submit" routerLink="/admin-layout/add-employee" class="btn btn-primary p-2">Add Employe</button>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -68,46 +68,52 @@
                         <th scope="col">Account Number</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Calculate</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Anil</td>
-                        <td>Coding</td>
-                        <td>Project Manager</td>
-                        <td> anil@gmail.com </td>
-                        <td> <strong>Male</strong> </td>
-                        <td> <strong>911565328</strong> </td>
-                        <td> <strong>WM/3B1</strong> </td>
-                        <td> <strong>Jalandhar</strong> </td>
-                        <td> <strong>Punjab</strong> </td>
-                        <td> <strong>4 year</strong> </td>
-                        <td> <strong>04/02/22</strong> </td>
+                    <tr *ngFor="let x of employees |filter:searchText"> 
+                        <th scope="row">{{x?.autoId}}</th>
+                        <td>{{x.name}}</td>
+                        <td>{{x.department}}</td>
+                        <td>{{x.designation}}</td>
+                        <td>{{x.email}} </td>
+                        <td> <strong>{{x.gender}}</strong> </td>
+                        <td> <strong>{{x.phone}}</strong> </td>
+                        <td> <strong>{{x.address}}</strong> </td>
+                        <td> <strong>{{x.city}}</strong> </td>
+                        <td> <strong>{{x.state}}</strong> </td>
+                        <td> <strong>{{x.experience}}</strong> </td>
+                        <td> <strong>{{x.createdAt | date}}</strong> </td>
 
-                        <td> O7 services It comapany </td>
-                        <td>22</td>
-                        <td>Anil</td>
-                        <td> <strong>HDFC</strong> </td>
-                        <td> <strong>Basti Guzan</strong> </td>
-                        <td> <strong>HDFC100</strong> </td>
-                        <td> <strong>0212194689</strong> </td>
-                        <td> <strong>Presence</strong> </td>
+                        <td> {{x.hiredAddress}}</td>
+                        <td>{{x.age}}</td>
+                        <td>{{x.accountHolder}}</td>
+                        <td style="width: 500px;"> <strong>{{x.bankName}}</strong> </td>
+                        <td> <strong>{{x.bankBranch}}</strong> </td>
+                        <td> <strong>{{x.ifscCode}}</strong> </td>
+                        <td> <strong>{{x.accountNumber}}</strong> </td>
+                        <td> <strong>{{x.status}}</strong> </td>
                         <td>
                             <div class="btn-group">
-                                <button routerLink="/admin-layout/update-employee" class="btn btn-success btn-sm  p-2" >
-                                    Edit
-                                 </button>
-                                 <button class="btn btn-danger btn-sm p-1" >
-                                   Delete
-                                 </button>
-                             
+                               
+                                <button  class="btn btn-sm p-1" [ngClass]="x?.userId?.status == true ? 'btn-outline-success' : 'btn-success' " (click)="change_status(x?.userId, 'true')" type="submit" [disabled]="x?.userId?.status == true" >
+                                    <i class="bi bi-check">Unblock</i>
+                                </button>
+                                <button  class="btn btn-sm p-1" [ngClass]="x?.userId?.status == false ? 'btn-outline-danger' : 'btn-danger' " (click)="change_status(x?.userId, 'false')" type="submit" [disabled]="x?.userId?.status == false">
+                                    <i class="bi bi-x">Block</i>
+                                </button>
+                                
                             </div>
-                         
+            
+                        </td>
+                        <td>
+                            <button  [routerLink]="['/admin-layout/calculate-salary',x._id]" class="btn-sm btn-success btn p-1">Calculate</button>
                         </td>
                     </tr>
+                    
                 </tbody>
                 
             </table>

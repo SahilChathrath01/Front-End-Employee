@@ -14,7 +14,7 @@
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group  mx-auto d-flex">
                             <input type="search" class="py-2 border-2  form-control p-3"
-                                placeholder="Enter  Employe Name">
+                                placeholder="Enter  Employe Name"[(ngModel)]="searchText" >
                             <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
                             <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
                         </div>
@@ -29,7 +29,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">#Id</th>
+                        <th scope="row">#Id</th>
                         <th scope="col">Employe Name</th>
                         <th scope="col">Department</th>
                         <th scope="col">Desination</th>
@@ -44,25 +44,29 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Anil</td>
-                        <td>Coding</td>
-                        <td>Project Manager</td>
-                        <td> $5000 </td>
-                        <td> <strong>$500</strong> </td>
-                        <td> <strong>Pending</strong> </td>
-                         <td> 
+                    <tr *ngFor="let x of Employee|filter:searchText">
+                        <td>{{x.autoId}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.department}}</td>
+                        <td>{{x.designation}}</td>
+                        <td> {{x.email}}</td>
+                        <td> <strong>{{x.createdAt | date}}</strong> </td>
+                        <td> <strong>{{x.status}}</strong> </td>
+                        <td>
                             <div class="btn-group">
-                                <button class="btn btn-success btn-sm p-1" >
-                                    Presence
-                                  </button>
-                                  <button class="btn btn-warning btn-sm p-1" >
+                                <button class="btn btn-success btn-sm p-1"
+                                    [ngClass]="x?._id?.status == 'prensence	
+                                    ' ? 'btn-outline-danger': 'btn-success'"
+
+                                    (click)="  changeStatus(x?._id , 'prensence	
+                                    ')" type="submit" [disabled]="x?._id?.status == 'prensence'">Presence
+                                </button>
+                                <button class="btn btn-warning btn-sm p-1" [ngClass]="x?._id.status == 'Absent' ? 'btn-outline-dark' :'btn-warning'" (click)="changeStatus(x?._id, 'Absent')" type="submit" [disabled]="x?._id?.status == 'Absent'">
                                     Absent
-                                  </button>
-                                  <button class="btn btn-danger btn-sm p-1" >
+                                </button>
+                                <button class="btn btn-warning btn-sm p-1" [ngClass]="x?._id.status == 'Holiday' ? 'btn-outline-danger' :'btn-danger'" (click)="changeStatus(x?._id, 'Holiday')" type="submit" [disabled]="x?._id?.status == 'Holiday'">
                                     Holiday
-                                  </button>
+                                </button>
                             </div>
                         </td>
 

@@ -28,6 +28,11 @@
                     <div class="header-text mb-4">
                         <h2> Advance   page...</h2>
                         <p>we are happy to have you back</p>
+                        <div class="btn-group">
+                            <label for="btn" class="py-1 mb-1 border-3 shadow fs-6 form-control">Status:</label>
+                            <p id="btn"  class="btn btn-sm  py-1 mb-1 border-3 shadow p-1 fs-6    form-control btn-primary  " ></p>
+
+                        </div>
                     </div>
 
                     <form [formGroup]="advanceForm" (submit)="submit()" >
@@ -35,6 +40,14 @@
                             <div class="col-md-3 input-group  mb-3">
                                 <input type="text" class="form-control form-control-lg bg-light fs-6"
                                     placeholder="Enter Name" formControlName="name">
+                            </div>
+                            <div class="col-md-3 input-group  mb-3">
+                                <input type="email" class="form-control form-control-lg bg-light fs-6"
+                                    placeholder="Enter Email" formControlName="email">
+                            </div>
+                            <div class="col-md-3 input-group mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6 "
+                                    placeholder="Deparment" formControlName="department">
                             </div>
 
                             <div class="col-md-3 input-group mb-3">
@@ -44,7 +57,7 @@
 
                             <div class="col-md-3 input-group mb-3">
                                 <input type="text" class="form-control form-control-lg bg-light fs-6 "
-                                    placeholder="Advance Amount" formControlName="advanceAmount">
+                                    placeholder="Advance Amount" formControlName="advanceSalary">
                             </div>
 
                             <div class="col-md-4 input-group  mb-2">

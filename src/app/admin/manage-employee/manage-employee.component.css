@@ -12,7 +12,8 @@ td img {
     border-radius: 50%;
     vertical-align: middle;
 }
-::placeholder{
+
+::placeholder {
     font-size: 20px;
     color: black;
 }
@@ -28,9 +29,10 @@ body {
 }
 
 
+
 table,
 th,
-td {
+td,tr {
     border-collapse: collapse;
     padding: 1rem;
     text-align: left;
@@ -39,7 +41,7 @@ td {
 main.table {
 
     width: 100%;
-    height: 80vh;
+    height: 100%;
     background-color: #f5f1f19f;
     backdrop-filter: blur(7px);
     box-shadow: 0.4rem .6rem #0005;
@@ -50,17 +52,18 @@ main.table {
 .table_header {
     width: 100%;
     height: 10%;
-    background-color: rgba(236, 230, 230, 0.267);
-    padding: .9rem 2rem;
+    background-color: rgba(252, 247, 247, 0.267);
+    padding: 1rem 50rem 1rem 5rem;
     overflow: auto;
 
 }
+
 .table_header::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.2rem;
 }
 
-.table_header::-webkit-scrollbar-thumb{
+.table_header::-webkit-scrollbar-thumb {
     border-radius: 5rem;
     background-color: white;
     visibility: hidden;
@@ -70,8 +73,13 @@ main.table {
 
 .text-right {
     position: relative;
-    left: 60rem;
+    left: 50rem;
     bottom: 13px;
+
+}
+
+.body-part {
+    width: 100%;
 }
 
 .page-header {
@@ -115,9 +123,11 @@ main.table {
     border-radius: .6rem;
     overflow: auto;
 }
-.input-group{
-   width: 70%;
+
+.input-group {
+    width: 70%;
 }
+
 table {
     width: 100%;
 }
@@ -150,30 +160,40 @@ tbody tr:hover {
 }
 
 
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width:1227px) {
     td:not(:first-of-type) {
         min-width: 12.1rem;
     }
+
     .text-right {
         position: relative;
-        left: 38rem;
-        bottom: 27px;
-        /* overflow: auto; */
+        /* left:500px; */
+    }
+
+    .table_header {
+        padding: 5rem 5rem;
+        position: sticky;
     }
 }
+
 @media only screen and (max-width:780px) {
 
 
-    .text-right {
-        position: relative;
-        /* left: 35rem; */
-        bottom: 38px;
+
+    .table_header {
+        padding: 10rem 0rem 5rem 10rem;
+        position: sticky;
     }
-    .btn{
+
+    .input-group {
+        width: 100%;
+    }
+
+    .btn {
         font-size: 12px;
     }
 
-   
+
 }
 
 @media only screen and (max-width:480px) {
@@ -186,7 +206,8 @@ tbody tr:hover {
         left: 14rem;
         bottom: 33px;
     }
-    .btn{
+
+    .btn {
         font-size: 12px;
     }
 

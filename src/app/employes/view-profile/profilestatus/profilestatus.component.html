@@ -1,0 +1,73 @@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6"> Profile Status</h1>
+    <ol class="breadcrumb justify-content-center mb-2">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active text-white"> Profile Status </li>
+    </ol>
+</div>
+<section class="back">
+    <main class="table">
+        <section class="table_header">
+            <h3>Employee Profile</h3>
+        </section>
+        <section class="table_body">
+          <table>
+            <thead>
+                <tr>
+                    <th scope="col">#Id</th>
+                    <th scope="col">Employe Name</th>
+                    <th scope="col">Desination</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Experinence</th>
+                    <th scope="col">Join Date</th>
+                    <th scope="col">Hired Address</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Account Holder</th>
+                    <th scope="col">Bank</th>
+                    <th scope="col">Bank Branch</th>
+                    <th scope="col">IFSC</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of AllData">
+                    <th scope="col">{{x?.autoId}}</th>
+                    <th scope="col">{{x?.name}}</th>
+                    <th scope="col">{{x?.designation}}</th>
+                    <th scope="col">{{x?.email}}</th>
+                    <th scope="col">{{x?.gender}}</th>
+                    <th scope="col">{{x?.phone}}</th>
+                    <th scope="col">{{x?.address}}</th>
+                    <th scope="col">{{x?.city}}</th>
+                    <th scope="col">{{x?.state}}</th>
+                    <th scope="col">{{x?.experience}}</th>
+                    <th scope="col">{{x?.joinDate | date}}</th>
+                    <th scope="col">{{x?.hiredAddress}}</th>
+                    <th scope="col">{{x?.age}}</th>
+                    <th scope="col">{{x?.accountHolder}}</th>
+                    <th scope="col">{{x?.bankName}}</th>
+                    <th scope="col">{{x?.bankBranch}}</th>
+                    <th scope="col">{{x?.ifscCode}}</th>
+                    <th scope="col">{{x.accountNumber}}</th>
+                    <th scope="col">{{x.status}}</th>
+                    <th scope="col">
+                        <div class="btn-group">
+                            <button class="btn btn-warning btn-outline-dark p-1 " [routerLink]="['/employe-layout/salary',x._id]">View Salary</button>
+                            <button class="btn btn-success btn-outline-white p-1  text-white" routerLink="/employe-layout/advance">Add Advance</button>
+                            <button class="btn btn-danger btn-outline-white p-1 text-white" routerLink="/employe-layout/leaves">Add Leave</button>
+                        </div>
+                    
+                    </th>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+    </main>
+</section>

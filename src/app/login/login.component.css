@@ -93,6 +93,11 @@ h2{
   align-items: center;
   justify-content: center;
 }
+@media only  screen and (max-width:1500px) {
+  form{
+    width: 50% !important;
+  }
+}
 @media only screen and (max-width:780PX) {
   form{
     width: 100% !important;

@@ -1,4 +1,3 @@
-import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,11 +7,12 @@ export class AuthServiceService {
 
   constructor() { }
 
-  setdata(data: any) {
-    sessionStorage.setItem('token', data.token)
+  setdata(obj: any) {
+    sessionStorage.setItem('token', obj.token)
+    sessionStorage.setItem('userdata',JSON.stringify(obj.data))
   }
   getdata() {
-    return sessionStorage.getItem('Token')
+    return sessionStorage.getItem('token')
   }
   cleardata() {
     sessionStorage.clear()

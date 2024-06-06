@@ -27,11 +27,18 @@ import { ManageLeavesComponent } from './admin/manage-leaves/manage-leaves.compo
 import { ManageSalaryComponent } from './admin/manage-salary/manage-salary.component';
 import { ManageAttendanceComponent } from './admin/manage-attendance/manage-attendance.component';
 import { AddEmployeeComponent } from './admin/manage-employee/add-employee/add-employee.component';
-import { UpdateEmployeeComponent } from './admin/manage-employee/update-employee/update-employee.component';
-
+import {HttpClientModule} from '@angular/common/http'
+import {   Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CalculateSalaryComponent } from './admin/manage-salary/calculate-salary/calculate-salary.component';
+import { FilterPipe } from './filter.pipe';
+import { UpdateProfileComponent } from './employes/update-profile/update-profile.component';
+import { ViewLeaveComponent } from './employes/employe-leaves/view-leave/view-leave.component';
+import { ViewAttendanceComponent } from './employes/employe-attdence/view-attendance/view-attendance.component';
+import { ViewAdvanceComponent } from './employes/employe-advance/view-advance/view-advance.component';
+import { ProfilestatusComponent } from './employes/view-profile/profilestatus/profilestatus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +63,13 @@ import { CalculateSalaryComponent } from './admin/manage-salary/calculate-salary
     ManageSalaryComponent,
     ManageAttendanceComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent,
     CalculateSalaryComponent,
+    FilterPipe,
+    UpdateProfileComponent,
+    ViewLeaveComponent,
+    ViewAttendanceComponent,
+    ViewAdvanceComponent,
+    ProfilestatusComponent,
     
   ],
   imports: [
@@ -67,6 +79,12 @@ import { CalculateSalaryComponent } from './admin/manage-salary/calculate-salary
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    HttpClientModule,
+     BrowserModule, 
+     FormsModule
+
+     
+
     
   ],
   providers: [],

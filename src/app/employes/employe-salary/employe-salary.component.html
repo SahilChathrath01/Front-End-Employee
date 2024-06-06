@@ -17,7 +17,7 @@
                     <tr>
                         <th scope="col">#Id</th>
                         <th scope="col">Employe Name</th>
-                        <th scope="col">Department</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Desination</th>
                         <th scope="col">BS</th>
                         <th scope="col">DA</th>
@@ -27,31 +27,32 @@
                         <th scope="col">LIC</th>
                         <th scope="col">TOTAL Deduction</th>
                         <th scope="col">G-SALARY</th>
-                        <th scope="col">Net Salary</th>
                         <th scope="col">Advance Salary</th>
-                        <th scope="col">Total Salary</th>
+                        <th scope="col">Net Salary</th>
+                        <th scope="col">In Hand Salary</th>
+                        <th scope="col">Status</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Anil</td>
-                        <td>Coding</td>
-                        <td>Project Manager</td>
-                        <td> $5000 </td>
-                    <td> <strong>$500</strong> </td>   
-                    <td> <strong>375</strong> </td>     
-                    <td> <strong>$750</strong> </td>     
-                    <td> <strong>$375</strong> </td>     
-                    <td> <strong>$187.5</strong> </td>     
-                    <td> <strong>$562.5</strong> </td>     
-                    <td> <strong>$6625</strong> </td>     
-
-                    <td> <p class="status success">6062.50</p></td>    
-                    <td>$300</td>     
-                    <td>$5762.5</td>     
+                    <tr *ngFor="let x of SalaryData">
+                        <td>{{x.autoId}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.designation}}</td>
+                        <td> {{x.bSalary|currency:"INR"}}</td>
+                    <td> <strong>{{x.da | currency:'INR'}}</strong> </td>   
+                    <td> <strong>{{x.hra| currency :'INR'}}</strong> </td>     
+                    <td> <strong>{{x.pf|currency:"INR"}}</strong> </td>     
+                    <td> <strong>{{x.haafPf|currency:'INR'}}</strong> </td>     
+                    <td> <strong>{{x.lic|currency:'INR'}}</strong> </td>     
+                    <td> <strong>{{x.totalDuction|currency:"INR"}}</strong> </td>     
+                    <td> <strong>{{x.Gsalary|currency:"INR"}}</strong> </td>     
+                    <td> <strong>{{x.advanceSalary|currency:"INR"}}</strong> </td>     
+                    <td> <p class="btn btn-success p-1">{{x.netSalary|currency:"INR"}}</p></td>    
+                    <td><strong>{{x.inHandSalary|currency:"INR"}}</strong> </td>     
+                    <td><strong>{{x.status }}</strong> </td>     
 
                     </tr>
                 </tbody>

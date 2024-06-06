@@ -1,0 +1,76 @@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Employe Leave </h1>
+    <ol class="breadcrumb justify-content-center mb-2 p-1">
+        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
+        <li class="breadcrumb-item active text-white">Employe Leave</li>
+    </ol>
+</div>
+<section class="back">
+    <main class="table">
+        <div class="search-bar">
+            <div class="modal-dialog ">
+                <div class="modal-content rounded-4">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group  mx-auto d-flex">
+                            <input type="search" class="py-2 border-2  form-control p-3"
+                                placeholder="Enter  Employe Name" [(ngModel)]="searchText">
+                            <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="table_header">
+            <h3> Employe Leaves Detail</h3>
+        </section>
+        <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#Id</th>
+                        <th scope="col">Employe Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Desination</th>
+                        <th scope="col">Purpose of leave </th>
+                        <th scope="col">To Date </th>
+                        <th scope="col">From Date </th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let x of leavesArray|filter:searchText">
+                        <td>{{x.autoId}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.department}}</td>
+                        <td>{{x.desination}}</td>
+                        <td> 
+                            <label>
+                                <input   id="more"  type="checkbox">Read more
+                                <div id="content">
+                                    {{x.message}}
+                                </div>
+                            </label>
+                        </td>
+                        <td> <strong>{{x.todate}}</strong> </td>
+                        <td>{{x.fromdate}}</td>
+
+                        <td>
+                            <button class="btn btn-success text-white p-1">{{x.status}}</button>
+                        </td>
+                        <td>
+                          <button routerLink="/employe-layout/leaves" class="btn btn-sm btn-success text-white p-1 ">Add Leave</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</section>

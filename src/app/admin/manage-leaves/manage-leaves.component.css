@@ -12,6 +12,15 @@ td img {
     border-radius: 50%;
     vertical-align: middle;
 }
+#content{
+    overflow: hidden;
+    height: 3.6em;
+    line-height: 1.2em;
+    width: 500px;
+}
+#more:checked + div{
+    height: auto;
+}
 .input-group {
     width: 70%;
 }

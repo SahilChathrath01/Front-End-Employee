@@ -29,6 +29,10 @@
     font-size: 20px;
     color: #000;
 }
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
 .featured-image{
     background-position: center;
     background-size: cover;
@@ -89,8 +93,53 @@ body{
   
   }
 
+  h2 {
+    color: darkgray;
+    margin-top: 10px;
+    margin-bottom: 5px;
 
- .profile ul li a {
+}
+.column1{
+  backdrop-filter: blur(10px);
+}
+.side-box{
+  position: relative;
+  top: 100px;
+}
+ ul  {
+  
+    list-style: none;
+    padding: 10px;
+}
+
+ ul li {
+    margin-bottom: 10px;
+}
+
+ ul li a {
+    color: darkgray;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid rgba(236, 240, 241, 0.3);
+    text-align: left;
+    padding: 5px 8px;
+    display: block;
+}
+
+ ul li a span {
+    float: right;
+    color: black;
+}
+
+.active,
+ ul li a:hover {
+
+    color: rgb(233, 242, 233) !important;
+    background-color: #888888;
+}
+
+
+ ul li a {
     color: darkgray;
     text-decoration: none;
     text-transform: uppercase;
@@ -101,13 +150,13 @@ body{
     display: block;
 }
 
-main .account-page .profile ul li a span {
+ ul li a span {
     float: right;
     color: black;
 }
 
 .active,
-.profile ul li a:hover {
+ ul li a:hover {
 
     color: rgb(233, 242, 233) !important;
     background-color: #888888;

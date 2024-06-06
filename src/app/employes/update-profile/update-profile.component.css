@@ -13,7 +13,7 @@
   
   }
   .back2{
-      background: url(../../../../assets/img/login/pikaso_texttoimage_35mm-film-photography-Majestic-sunset-over-towerin.jpeg);
+      background: url(../../../assets/img/login/pikaso_texttoimage_35mm-film-photography-Majestic-sunset-over-towerin.jpeg);
   
   }
   .back{
@@ -23,7 +23,7 @@
   .left-box{
       background-size: cover;
       background-repeat: no-repeat;
-      background-image: url(../../../../assets/img/login/5788.jpg);
+      background-image: url(../../../assets/img/login/5788.jpg);
   }
   ::placeholder{
       font-size: 20px;
@@ -37,16 +37,11 @@
       background-color: rgba(45, 44, 44, 0.635);
   
   }
-
   *{
       box-sizing: border-box;
       list-style: none;
   }
-  .btn {
-    position: relative;
-    /* left: 150px; */
-    width: 280px;
-  }
+  
   
   body{
       font-family: 'Courier New', Courier, monospace;
@@ -60,11 +55,9 @@
       position: relative;
       top: 10px;
   }
-  p{
-    color: #ececec;
-  }
   
-  @media only screen and (max-width:780px) {
+  
+  @media only screen and (max-width:768px) {
       .box-area{
         margin: 0 10px;
       }
@@ -77,23 +70,12 @@
       .right-box{
         padding: 10px;
       }
-      .btn {
-        position: relative;
-        /* left: 150px; */
-        width:100%;
-      }
     
     }
     @media only screen and (max-width:480px) {
       .box-area{
         min-width: 100%;  
         margin: 0 0px 10px;
-      }
-      .btn {
-        position: relative;
-        /* left: 150px; */
-        width:100%;
-        
       }
       .left-box{
         height: 100px;
@@ -122,13 +104,6 @@
   main .account-page .profile ul li a span {
       float: right;
       color: black;
-  }
-  .invalid-text{
-    text-align: center;
-    position: relative;
-    bottom: 15px;
-    font-size: 24px;
-
   }
   
   .active,

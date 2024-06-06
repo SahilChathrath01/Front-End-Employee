@@ -1,0 +1,78 @@
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6"> Employe Advance </h1>
+    <ol class="breadcrumb justify-content-center mb-2 p-1">
+        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
+        <li class="breadcrumb-item active text-white"> Employe Advance </li>
+    </ol>
+</div>
+<section class="back">
+    <main class="table">
+        <div class="search-bar">
+            <div class="modal-dialog ">
+                <div class="modal-content rounded-4">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group  mx-auto d-flex">
+                            <input type="search" class="py-2 border-2  form-control p-3"
+                                placeholder="Enter  Employe Name" [(ngModel)]="searchText">
+                            <!-- <input type="search" class="form-control p-3"  aria-describedby="search-icon-1"> -->
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="table_header">
+            <h3> Employe Advance Detail</h3>
+
+        </section>
+        <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#Id</th>
+                        <th scope="col">Employe Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Desination</th>
+                        <th scope="col">Advance Amount</th>
+                        <th scope="col">Purpose of Salary Advance</th>
+                        <th scope="col">Date/Time</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor=" let x of advances|filter:searchText">
+                        <td>{{x?.autoId}}</td>
+                        <td>{{x?.name}}</td>
+                        <td>{{x?.department}}</td>
+                        <td>{{x?.desination}}</td>
+                        <td> {{x.advanceSalary}}</td>
+                        <td>
+                            <label>
+                                <input id="more" type="checkbox">Read More...
+                                <div id="content">
+                                    {{x.message}}
+                                </div>
+                            </label>
+                        </td>
+                        <td> <strong>{{x.createdAt | date }}</strong> </td>
+                        <td>
+                            <p class="status success "><button class="btn  p-1"
+                                    [ngClass]="x?._id?.status == 'Approped' ? 'btn-outline-danger' :'btn-success' "
+                                    type="button"
+                                    *ngIf="x?._id?.status == 'rejected' ? 'btn-outline-dark' :'btn-danger' ">{{x.status}}</button>
+                            </p>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-success p-1 form-contol ">Add Advance</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</section>
