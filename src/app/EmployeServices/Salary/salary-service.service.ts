@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthServiceService } from '../auth/auth-service.service';
-import { base_url, base_url_admin, base_url_employee } from 'src/app/Endpoint';
+import {  base_url_admin, base_url_employee } from 'src/app/Endpoint';
 import { WindowRefService } from 'src/app/window-ref.service';
 @Injectable({
   providedIn: 'root'

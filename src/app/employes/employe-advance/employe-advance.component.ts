@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AdvanceServiceService } from 'src/app/EmployeServices/Advance/advance-service.service';
@@ -26,33 +27,34 @@ export class EmployeAdvanceComponent implements OnInit {
   })
   ngOnInit(): void {
     this.userdata = JSON.parse(sessionStorage.getItem('userdata') ?? '')
-    this.advanceForm.patchValue({ userId: this.userdata._id,_id:this.userdata?._id })
+    this.advanceForm.patchValue({ userId: this.userdata._id})
     this.viewProfile()
   }
   constructor(
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-    private Employee:EmployeeServicesService,
+    private Employee: EmployeeServicesService,
     private advance: AdvanceServiceService,
-    private auth: AuthServiceService) { }
-
-    viewProfile(){
-      let employeData:any = {}
-      this.Employee.single({_id:this.advanceForm.value._id}).subscribe((result:any)=>{
-        if(result.success){
-          employeData = result.data
-          this.advanceForm.patchValue({
-            name:employeData?.name,
-            _id:employeData?._id,
-            email:employeData?.email,
-            department:employeData?.department,
-            desination:employeData?.designation
-          })
-        }else{
-          this.toastr.error(result.message)
-        }
-      })
-    }
+    private auth: AuthServiceService,
+    private active: ActivatedRoute) { }
+  employeData: any = {}
+  
+  viewProfile() {
+    this.Employee.single({ _id: this.active.snapshot.paramMap.get('id') }).subscribe((result: any) => {
+      if (result.success) {
+        this.employeData = result.data
+        this.advanceForm.patchValue({
+          name: this.employeData?.name,
+          _id: this.employeData?._id,
+          email: this.employeData?.email,
+          department: this.employeData?.department,
+          desination: this.employeData?.designation
+        })
+      } else {
+        this.toastr.error(result.message)
+      }
+    })
+  }
   submit() {
     this.advance.add(this.advanceForm.value).subscribe((result: any) => {
       if (result.success) {

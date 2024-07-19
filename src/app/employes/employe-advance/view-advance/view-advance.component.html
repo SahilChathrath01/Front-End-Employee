@@ -1,8 +1,8 @@
 <div class="container-fluid page-header py-5">
-    <h1 class="text-center text-white display-6"> Employe Advance </h1>
+    <h1 class="text-center text-white display-6">  Advance  Salary</h1>
     <ol class="breadcrumb justify-content-center mb-2 p-1">
-        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
-        <li class="breadcrumb-item active text-white"> Employe Advance </li>
+        <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Account</a></li>
+        <li class="breadcrumb-item active text-white"> Advance Salary </li>
     </ol>
 </div>
 <section class="back">
@@ -37,7 +37,6 @@
                         <th scope="col">Purpose of Salary Advance</th>
                         <th scope="col">Date/Time</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
 
 
                     </tr>
@@ -46,10 +45,10 @@
                 <tbody>
                     <tr *ngFor=" let x of advances|filter:searchText">
                         <td>{{x?.autoId}}</td>
-                        <td>{{x?.name}}</td>
-                        <td>{{x?.department}}</td>
-                        <td>{{x?.desination}}</td>
-                        <td> {{x.advanceSalary}}</td>
+                        <td>{{x?.name|uppercase}}</td>
+                        <td>{{x?.department|uppercase}}</td>
+                        <td>{{x?.desination|uppercase}}</td>
+                        <td> {{x.advanceSalary|currency:'INR'}}</td>
                         <td>
                             <label>
                                 <input id="more" type="checkbox">Read More...
@@ -58,7 +57,7 @@
                                 </div>
                             </label>
                         </td>
-                        <td> <strong>{{x.createdAt | date }}</strong> </td>
+                        <td> <strong>{{x.createdAt|date:'shortDate'}}<br> {{x.createdAt | date:'shortTime' }}</strong> </td>
                         <td>
                             <p class="status success "><button class="btn  p-1"
                                     [ngClass]="x?._id?.status == 'Approped' ? 'btn-outline-danger' :'btn-success' "
@@ -66,9 +65,7 @@
                                     *ngIf="x?._id?.status == 'rejected' ? 'btn-outline-dark' :'btn-danger' ">{{x.status}}</button>
                             </p>
                         </td>
-                        <td>
-                            <button class="btn btn-sm btn-success p-1 form-contol ">Add Advance</button>
-                        </td>
+                     
 
                     </tr>
                 </tbody>

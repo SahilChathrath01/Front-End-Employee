@@ -30,13 +30,14 @@ export class LoginComponent {
     this.User.Login(this.loginForm.value).subscribe({
       next: ((result: any) => {
         if (result.success) {
+          this.Spinner.hide()
           this.toastr.success(result.message)
           this.authservice.setdata(result)
 
           if (result.data.userType == 1)
             this.router.navigateByUrl("/admin-layout/dashboard")
           else
-            this.router.navigateByUrl("/employe-layout/attendance")
+            this.router.navigateByUrl("/employe-layout/Profile-status")
         } else {
           this.toastr.error(result.message)
         }

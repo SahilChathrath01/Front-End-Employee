@@ -29,11 +29,10 @@ import { ProfilestatusComponent } from './employes/view-profile/profilestatus/pr
 const routes: Routes = [
   {path: "",redirectTo:'/login',pathMatch:'full'},
   {path:'employe-layout',component:EmployLayoutComponent,canActivate:[guardGuard], children:[
-    {path:'attendance',component:EmployeAttdenceComponent},
-    {path:'view-attendance',component:ViewAttendanceComponent},
-    {path:'leaves',component:EmployeLeavesComponent},
+    {path:'view-attendance/:id',component:ViewAttendanceComponent},
+    {path:'leaves/:id',component:EmployeLeavesComponent},
     {path:'view-leave',component:ViewLeaveComponent},
-    {path:'advance',component:EmployeAdvanceComponent},
+    {path:'advance/:id',component:EmployeAdvanceComponent},
     {path:'view-advance',component:ViewAdvanceComponent},
     {path:'salary/:id',component:EmployeSalaryComponent},
     {path:'view-profile',component:ViewProfileComponent},
@@ -45,12 +44,13 @@ const routes: Routes = [
   {path:'admin-layout',component:AdminLayoutComponent, canActivate:[adminGuardGuard],children:[
     {path:"dashboard",component:DashboardComponent},
     {path:'manage-attendance',component:ManageAttendanceComponent},
+    {path:'attendance/:id',component:EmployeAttdenceComponent},
     {path:'manage-leaves',component:ManageLeavesComponent},
     {path:'manage-advance',component:ManageAdvanceComponent},
     {path:'manage-salary',component:ManageSalaryComponent},
     {path:'manage-view-profile',component:ViewProfileComponent},
     {path:'manage-employe',component:ManageEmployeeComponent},
-    {path:"update-profile",component:UpdateProfileComponent},
+    {path:"update-profile/:id",component:UpdateProfileComponent},
     {path:'manage-change-password',component:ChangePasswordComponent},
     {path:'add-employee',component:AddEmployeeComponent},
     {path:'calculate-salary/:id',component:CalculateSalaryComponent}

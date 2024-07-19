@@ -35,13 +35,13 @@
         </section>
 
         <section class="table_body">
-            <table>
+            <table id="table_data">
 
                 <thead>
                     <tr>
                         <th scope="col">#Id</th>
                         <th scope="col">Employe Name</th>
-                        <th scope="col">Department</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Desination</th>
                         <th scope="col">BS</th>
                         <th scope="col">DA</th>
@@ -54,6 +54,7 @@
                         <th scope="col">Advance Salary</th>
                         <th scope="col">Net Salary</th>
                         <th scope="col">InHandSalary</th>
+                        <th scope="col">Time/Date</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
 
@@ -63,9 +64,9 @@
                 <tbody>
                     <tr *ngFor="let x of salarys |filter:searchText">
                         <td>{{x.autoId}}</td>
-                        <td>{{x.name}}</td>
-                        <td>{{x.department}}</td>
-                        <td>{{x.designation}}</td>
+                        <td>{{x.name|uppercase}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.designation|uppercase}}</td>
                         <td> {{x.bSalary | currency:'INR'}}</td>
                         <td> <strong>{{x.da | currency:"INR"}}</strong> </td>
                         <td> <strong>{{x.hra | currency:"INR"}}</strong> </td>
@@ -75,18 +76,24 @@
                         <td> <strong>{{x.totalDuction | currency:"INR"}}</strong> </td>
                         <td> <strong>{{x.Gsalary|currency:"INR"}}</strong> </td>
                         <td>{{x.advanceSalary|currency:"INR"}}</td>
-
+                        
                         <td>
                             <button class="btn btn-light p-1">{{x.netSalary | currency:"INR"}}</button>
                         </td>
                         <td>{{x.inHandSalary | currency:"INR"}}</td>
                         <td>
-                            {{x.status}}
+                            
+                            {{x.createdAt|date:'shortDate'}}
+                            <hr style="color: black;"><hr style="color: black;">
+                            {{x.createdAt|date}}<br>
+                        </td>
+                        <td>
+                            {{x.status|uppercase}}
                         </td>
                         <td>
                             <div class="btn-group">
-                                <button  class="btn btn-success text-white btn-sm  p-2" (click)="changeStatus(x?._id, 'Progress')">
-                                    Progress
+                                <button  class="btn btn-success text-white btn-sm  p-2" (click)="ExportToData()">
+                                    Download Data
                                  </button>
                                  <button type="button" class="btn text-white p-2" style="background-color: blue;" (click)="changeStatus(x?._id, 'Payment Completed')"><a (click)="createRzpayOrder(someData)">Pay Now </a></button>
                             </div>

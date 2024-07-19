@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService, Spinner } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AttdendanceServiceService } from 'src/app/EmployeServices/Attdendance/attdendance-service.service';
@@ -14,7 +15,7 @@ import { AuthServiceService } from 'src/app/EmployeServices/auth/auth-service.se
 export class EmployeAttdenceComponent implements OnInit {
   userdata: any
   attdenceForm = new FormGroup({
-    userId: new FormControl("", [Validators.required]),
+    employeeId: new FormControl("", [Validators.required]),
     name: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required]),
     department: new FormControl("", [Validators.required]),
@@ -28,24 +29,27 @@ export class EmployeAttdenceComponent implements OnInit {
     private auth: AuthServiceService,
      private spinner: NgxSpinnerService, 
      private Employee:EmployeeServicesService,
+     private Active:ActivatedRoute,
      private attendence: AttdendanceServiceService) { }
   ngOnInit(): void {
     this.userdata = JSON.parse(sessionStorage.getItem("userdata") ?? '')
     // console.log("userId", this.userdata._id);
-    this.attdenceForm.patchValue({ userId: this.userdata._id,_id:this.userdata._id })
+    this.attdenceForm.patchValue({ employeeId:this.Active.snapshot.paramMap.get('id') })
     this.viewProfile()
   }
+   employeData :any = {}
+
   viewProfile(){
-    let employeData :any = {}
-    this.Employee.single({_id:this.attdenceForm.value._id}).subscribe((result:any)=>{
+    console.log("userId",this.userdata?._id);
+    
+    this.Employee.single({_id:this.Active.snapshot.paramMap.get('id')}).subscribe((result:any)=>{
       if(result.success){
-        employeData = result.data
-        this.attdenceForm.patchValue({
-          name:employeData?.name, 
-          email:employeData.email,
-          department:employeData.department,
-          designation:employeData.designation,
-          _id:this.userdata._id})
+        this.employeData = result.data
+        this.attdenceForm?.patchValue({
+          name:this.employeData?.name, 
+          email:this.employeData?.email,
+          department:this.employeData?.department,
+          designation:this.employeData?.designation,})
       }else{
         this.toastr.error(result.message)
       }

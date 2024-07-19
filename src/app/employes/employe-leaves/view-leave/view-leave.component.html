@@ -37,7 +37,6 @@
                         <th scope="col">To Date </th>
                         <th scope="col">From Date </th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
 
 
                     </tr>
@@ -59,14 +58,12 @@
                             </label>
                         </td>
                         <td> <strong>{{x.todate}}</strong> </td>
-                        <td>{{x.fromdate}}</td>
+                        <td>{{x.fromdate | date:'shortDate'}}</td>
 
                         <td>
                             <button class="btn btn-success text-white p-1">{{x.status}}</button>
                         </td>
-                        <td>
-                          <button routerLink="/employe-layout/leaves" class="btn btn-sm btn-success text-white p-1 ">Add Leave</button>
-                        </td>
+                     
 
                     </tr>
                 </tbody>

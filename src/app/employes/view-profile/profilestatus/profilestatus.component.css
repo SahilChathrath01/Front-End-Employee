@@ -12,6 +12,13 @@ td img {
     border-radius: 50%;
     vertical-align: middle;
 }
+img{
+    width: 50px;
+    height: 50px;
+    margin-right: .5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+}
 
 body {
     justify-content: center;

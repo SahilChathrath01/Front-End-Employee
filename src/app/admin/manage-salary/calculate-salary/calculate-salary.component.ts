@@ -13,8 +13,8 @@ import { AuthServiceService } from 'src/app/EmployeServices/auth/auth-service.se
   styleUrls: ['./calculate-salary.component.css']
 })
 export class CalculateSalaryComponent implements OnInit {
-  employeeId: any
   userdata: any
+  employeId:any
   constructor(
     private toastr: ToastrService,
     private active: ActivatedRoute,
@@ -39,26 +39,48 @@ export class CalculateSalaryComponent implements OnInit {
     advanceSalary: new FormControl("", [Validators.required]),
     netSalary: new FormControl("", [Validators.required]),
     inHandSalary: new FormControl("", [Validators.required]),
-    employeeId: new FormControl("", [Validators.required]),
-    _id: new FormControl("", [Validators.required])
+    employeeId: new FormControl("", [Validators.required])
   })
   ngOnInit(): void {
-    this.userdata = JSON.parse(sessionStorage.getItem('userdata') ?? '')
-    this.employeeId = this.active.snapshot.paramMap.get('id')
-    console.log(this.userdata);
-    this.calculateForm.patchValue({ employeeId: this.employeeId, _id: this.userdata._id })
-    this.viewProfile()
+    this.employeId = this.active.snapshot.paramMap.get('id')
+    this.calculateForm.patchValue({ employeeId:this.employeId})
+    console.log(this.employeId);
+    this.view_Profile()
   }
-  viewProfile() {
-    let employeData: any = {}
-    this.employee.Single({ _id: this.calculateForm.value._id }).subscribe((result: any) => {
-      if (result.success) {
-        employeData = result.data
-        this.calculateForm.patchValue({ name: employeData?.name })
-      } else {
-        this.toastr.error(result.message)
-      }
+ employeData: any = {}
+
+  view_Profile() {
+    console.log(this.employeData);
+    this.spinner.show()
+    this.employee.single({_id:this.employeId}).subscribe({
+      next: ((result: any) => {
+        if (result.success) {
+          this.toastr.success(result.message)
+          
+          this.employeData = result.data
+          this.calculateForm.patchValue({
+            name: this.employeData.name,
+            employeeId: this.employeId,
+            email: this.employeData.email,
+            designation:this.employeData.designation,
+            bSalary:this.employeData.bSalary
+          })
+        }
+        else {
+          this.toastr.error(result.message)
+        }
+      }),
+      error: ((err: any) => {
+        this.spinner.hide()
+        this.toastr.error(err, "Error occured", err)
+      }),
+      complete: (() => {
+        this.spinner.hide()
+
+      })
     })
+
+
   }
   submit() {
     this.spinner.show()

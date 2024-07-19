@@ -11,6 +11,7 @@ import { AdvanceServiceService } from 'src/app/EmployeServices/Advance/advance-s
 export class ViewAdvanceComponent implements OnInit {
   advances: any[] = [];
   userdata: any
+  emaployeeId:any
   searchText: any;
   ngOnInit(): void {
     this.userdata = JSON.parse(sessionStorage.getItem("userdata") ?? '')

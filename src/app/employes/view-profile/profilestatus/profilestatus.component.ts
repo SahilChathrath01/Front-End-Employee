@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeServicesService } from 'src/app/EmployeServices/Employee/employee-services.service';
+import { img_url } from 'src/app/Endpoint';
 
 @Component({
   selector: 'app-profilestatus',
@@ -9,6 +10,9 @@ import { EmployeeServicesService } from 'src/app/EmployeServices/Employee/employ
   styleUrls: ['./profilestatus.component.css']
 })
 export class ProfilestatusComponent implements OnInit {
+  path_Img(path: any) {
+    return img_url + path
+  }
   SingleData: any = {}
   AllData: any[] = []
   userdata: any
@@ -24,9 +28,9 @@ export class ProfilestatusComponent implements OnInit {
     this.All(this.userdata._id)
   }
 
-  All(id:any) {
+  All(id: any) {
     this.spinner.show()
-    this.employe.all({userId:id}).subscribe((result: any) => {
+    this.employe.all({ userId: id }).subscribe((result: any) => {
       if (result.success) {
         this.AllData = result.data
         // this.toastr.success(result.message)

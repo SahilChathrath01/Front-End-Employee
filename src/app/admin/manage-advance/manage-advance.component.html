@@ -1,8 +1,8 @@
 <div class="container-fluid page-header py-5">
-    <h1 class="text-center text-white display-6"> Employe Advance </h1>
+    <h1 class="text-center text-white display-6"> Employe Advance  Salary </h1>
     <ol class="breadcrumb justify-content-center mb-2 p-1">
         <li class="breadcrumb-item"><a href="/admin-layout/dashboard" class="text-white">Dashboard</a></li>
-        <li class="breadcrumb-item active text-white"> Employe Advance </li>
+        <li class="breadcrumb-item active text-white"> Employe Advance  Salary </li>
     </ol>
 </div>
 <section class="back">
@@ -22,11 +22,11 @@
             </div>
         </div>
         <section class="table_header">
-            <h3> Employe Advance Detail</h3>
+            <h3> Employe Advance Salary Detail</h3>
 
         </section>
         <section class="table_body">
-            <table>
+            <table id="table_data">
                 <thead>
                     <tr>
                         <th scope="col">#Id</th>
@@ -46,26 +46,26 @@
                 <tbody>
                     <tr *ngFor=" let x of advances|filter:searchText">
                         <td>{{x?.autoId}}</td>
-                        <td>{{x?.name}}</td>
-                        <td>{{x?.department}}</td>
-                        <td>{{x?.desination}}</td>
-                        <td> {{x.advanceSalary}}</td>
+                        <td>{{x?.name|uppercase}}</td>
+                        <td>{{x?.department|uppercase}}</td>
+                        <td>{{x?.desination|uppercase}}</td>
+                        <td> {{x.advanceSalary|currency:'INR'}}</td>
                         <td>
                             <label>
                                 <input type="checkbox" id="more">Read More
                                 <div id="content">
-                                   {{x.message}}
+                                   {{x.message|lowercase}}
                                 </div>
                             </label>
 
 
                         </td>
-                        <td> <strong>{{x.createdAt | date }}</strong> </td>
+                        <td> <strong>{{x.createdAt | date:'fullDate' }}</strong> </td>
                         <td>
                             <p class="status success "><button class="btn  p-1"
                                     [ngClass]="x?._id?.status == 'Approped' ? 'btn-outline-danger' :'btn-success' "
                                     type="button"
-                                    *ngIf="x?._id?.status == 'rejected' ? 'btn-outline-dark' :'btn-danger' ">{{x.status}}</button>
+                                    *ngIf="x?._id?.status == 'rejected' ? 'btn-outline-dark' :'btn-danger' ">{{x.status|uppercase}}</button>
                             </p>
                         </td>
                         <td>
@@ -78,7 +78,7 @@
                                     [ngClass]="x?._id?.status == 'rejected' ? 'btn-outline-danger' : 'btn-danger' "
                                     (click)="changeStatus(x?._id, 'rejected')" type="submit"
                                     [disabled]="x?.userId?.status == 'rejected'">rejected</button>
-
+                                   <button type="submit" class="btn btn-warning p-1" (click)="ExportToData()">Download</button>
                             </div>
                         </td>
 

@@ -44,11 +44,12 @@
 
         <section class="table_body">
 
-            <table>
+            <table id="table_data">
                 <thead>
                     <tr>
                         <th scope="col">#Id</th>
                         <th scope="col">Employe Name</th>
+                        <th scope="col">Profile Picture</th>
                         <th scope="col">Department</th>
                         <th scope="col">Desination</th>
                         <th scope="col">Email</th>
@@ -66,10 +67,10 @@
                         <th scope="col">Bank Branch</th>
                         <th scope="col">IFSC</th>
                         <th scope="col">Account Number</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Salary</th>
                         <th scope="col">Action</th>
                         <th scope="col">Calculate</th>
-
+                        
                     </tr>
                 </thead>
 
@@ -77,25 +78,26 @@
                     <tr *ngFor="let x of employees |filter:searchText"> 
                         <th scope="row">{{x?.autoId}}</th>
                         <td>{{x.name}}</td>
-                        <td>{{x.department}}</td>
-                        <td>{{x.designation}}</td>
+                        <td> <img class="img-fluid" [src]="img_Src(x.image)" alt=""></td>
+                        <td>{{x.department|uppercase}}</td>
+                        <td>{{x.designation|uppercase}}</td>
                         <td>{{x.email}} </td>
-                        <td> <strong>{{x.gender}}</strong> </td>
-                        <td> <strong>{{x.phone}}</strong> </td>
+                        <td> <strong>{{x.gender|uppercase}}</strong> </td>
+                        <td> <strong>{{x.phone }}</strong> </td>
                         <td> <strong>{{x.address}}</strong> </td>
-                        <td> <strong>{{x.city}}</strong> </td>
-                        <td> <strong>{{x.state}}</strong> </td>
-                        <td> <strong>{{x.experience}}</strong> </td>
-                        <td> <strong>{{x.createdAt | date}}</strong> </td>
+                        <td> <strong>{{x.city|uppercase}}</strong> </td>
+                        <td> <strong>{{x.state|uppercase}}</strong> </td>
+                        <td> <strong>{{x.experience |uppercase}}</strong> </td>
+                        <td> <strong>{{x.createdAt | date:'shortDate'}}</strong> </td>
 
-                        <td> {{x.hiredAddress}}</td>
-                        <td>{{x.age}}</td>
-                        <td>{{x.accountHolder}}</td>
-                        <td style="width: 500px;"> <strong>{{x.bankName}}</strong> </td>
-                        <td> <strong>{{x.bankBranch}}</strong> </td>
-                        <td> <strong>{{x.ifscCode}}</strong> </td>
-                        <td> <strong>{{x.accountNumber}}</strong> </td>
-                        <td> <strong>{{x.status}}</strong> </td>
+                        <td> {{x.Company}}</td>
+                        <td>{{x.age|uppercase}}</td>
+                        <td>{{x.accountHolder|uppercase}}</td>
+                        <td style="width: 500px;"> <strong>{{x.bankName|uppercase}}</strong> </td>
+                        <td> <strong>{{x.bankBranch|uppercase}}</strong> </td>
+                        <td> <strong>{{x.ifscCode|uppercase}}</strong> </td>
+                        <td> <strong>{{x.accountNumber|uppercase}}</strong> </td>
+                        <td> <strong>{{x.salary | currency:'INR'}}</strong> </td>
                         <td>
                             <div class="btn-group">
                                
@@ -105,12 +107,20 @@
                                 <button  class="btn btn-sm p-1" [ngClass]="x?.userId?.status == false ? 'btn-outline-danger' : 'btn-danger' " (click)="change_status(x?.userId, 'false')" type="submit" [disabled]="x?.userId?.status == false">
                                     <i class="bi bi-x">Block</i>
                                 </button>
-                                
                             </div>
             
                         </td>
                         <td>
                             <button  [routerLink]="['/admin-layout/calculate-salary',x._id]" class="btn-sm btn-success btn p-1">Calculate</button>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button  class="btn btn-warning p-1"   [routerLink]="['/admin-layout/attendance',x._id]" >Attendance now</button>
+
+                                <button  class="btn btn-success p-1"  [routerLink]="['/admin-layout/update-profile',x._id]">Edit</button>
+
+                                <button class=" btn btn-danger p-1 shadow" (click)="ExportToData()">Download Now</button>
+                            </div>
                         </td>
                     </tr>
                     

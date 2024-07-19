@@ -1,114 +1,110 @@
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.body{
-
-  height: 900px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: 'Courier New', Courier, monospace;
-  background: url(../../assets/img/login/nature-pictures-jhv8333xq7glv38h.jpg ) ;
-  box-shadow: 20px 20px 10px grey;
-  animation: slider 20s linear infinite ;
-}
-@keyframes  slider{
-  0%{
-  background-position: center;
-    background-size: cover;
-    background-clip: border-box;
-    background: url(../../assets/img/login/5788.jpg);
-  }
-  30%{
-    background-position: center;
-    background-size: cover;
-    background-clip: border-box;
-    background: url(../../assets/img/login/521944_pictures-of-nature-scenery-wallpapers-mobile-kemecer-com_2560x1600_h.jpg);
-  }
-  60%{
-    background-position: center;
-    background-size: cover;
-    background-clip: border-box;
-    background: url(../../assets/img/login/1.jpg);
-  }
-  60%{
-    background-position: center;
-    background-size: cover;
-    background-clip: border-box;
-    background: url(../../assets/img/login/captivating-serenity-of-nature-az84444pbhuff9ks.jpg);
-  }
-  40%,100%{
-    background-position: center;
-    background-size: cover;
-    background-clip: border-box;
-    background: url(../../assets/img/login/Canada_Parks_Lake_448982.jpg)
-  }
-}
-
-form{
-  background-color: white;
-  width: 24%;
-  padding: 50px;
-  border-radius: 20px;
-
-}
-.btn2{
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   width: 100%;
-  border: none;
- border-radius: 50px;
- background-color: blueviolet;
-
+  background: url(../../assets/img/login/2d-graphic-colorful-wallpaper-with-grainy-gradients.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-
-.form-control{
-  color: rgba(0, 0, 0,.87);
-  border-bottom-color: rgba(0, 0, 0,.42) ;
-  box-shadow: none !important;
-  border: none;
-  border-bottom: 1px solid;
-  border-radius: 4px 4px 0 0;
+h2:hover{
+transform: scale(2);
 }
-.box-area{
+.login-box {
   position: relative;
-  top: 150px;
-  
-}
-
-h2{
-  font-weight: 700;
-  font-size: 2rem !important;
-  color: blueviolet;
-}
-.form-label{
-  font-family: 800 !important;
-}
-.img-fluid{
-  width: 80px;
-  height: 80px;
-  position: relative;
-  left: 99px;
+  width: 400px;
+  height: 450px;
+  background-color:transparent;
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-@media only  screen and (max-width:1500px) {
-  form{
-    width: 50% !important;
-  }
+
+h2 {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
 }
-@media only screen and (max-width:780PX) {
-  form{
-    width: 100% !important;
 
-  }
+.input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0px;
+  border-bottom: 2px solid #fff;
 }
-@media only screen and (max-width:480PX) {
-  form{
-    width: 100% !important;
-  }
 
+.input-box label {
+  position: absolute;
+  top: 40%;
+  left: 55px;
+  transform: translate(-50%);
+  font-size: 1em;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
 
+.input-box input:focus~label,
+.input-box input:valid~label {
+  top: -5px;
 
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 57px;
+}
+.remember-forget{
+  margin: -15px 0 15px;
+  font-size: .9em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+
+}
+.remember-forget label input{
+  margin-right: 3px;
+}
+.remember-forget a{
+  text-decoration: none;
+  color: #fff;
+}
+.remember-forget a:hover{
+text-decoration: underline;
+}
+button{
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #000;
+  font-weight: 500;
 }

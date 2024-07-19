@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AttdendanceServiceService } from 'src/app/EmployeServices/Attdendance/attdendance-service.service';
@@ -10,16 +11,16 @@ import { AttdendanceServiceService } from 'src/app/EmployeServices/Attdendance/a
 })
 export class ViewAttendanceComponent implements OnInit {
   Attendance: any[] = []
-  userdata: any
+  employeeId:any
   searchText: any;
-  constructor(private toastr: ToastrService, private spinner: NgxSpinnerService, private attendance: AttdendanceServiceService) { }
+  constructor(private toastr: ToastrService, private active :ActivatedRoute,private spinner: NgxSpinnerService, private attendance: AttdendanceServiceService) { }
   ngOnInit(): void {
-    this.userdata = JSON.parse(sessionStorage.getItem("userdata") ?? '')
-    console.log("userId", this.userdata._id);
-    this.All(this.userdata._id)
+    this.employeeId = this.active.snapshot.paramMap.get('id')
+    console.log("userId", this.employeeId);
+    this.All(this.employeeId)
   }
   All(id: any) {
-    this.attendance.all({ userId: id }).subscribe((result: any) => {
+    this.attendance.all({ employeeId: id }).subscribe((result: any) => {
       if (result.success) {
         this.Attendance = result.data
       } else {

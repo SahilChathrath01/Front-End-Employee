@@ -33,6 +33,7 @@ export class EmployeLeavesComponent implements OnInit {
     private toastr: ToastrService,
     private active: ActivatedRoute
     , private auth: AuthServiceService,
+    
     private spinner: NgxSpinnerService,
     private leave: LeaveServiceService,
     private employee: EmployeeServicesService) { }
@@ -46,7 +47,7 @@ export class EmployeLeavesComponent implements OnInit {
 
   ViewProfile() {
     let employeData: any = {}
-    this.employee.single({ _id: this.leaveForm.value._id }).subscribe((result: any) => {
+    this.employee.single({ _id:this.active.snapshot.paramMap.get('id')}).subscribe((result: any) => {
       if (result.success) {
         employeData = result.data
         this.leaveForm.patchValue({

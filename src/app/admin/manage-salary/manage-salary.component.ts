@@ -5,13 +5,27 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SalaryServiceService } from 'src/app/EmployeServices/Salary/salary-service.service';
 import { WindowRefService } from 'src/app/window-ref.service';
-
+import * as XLSX  from 'xlsx'
 @Component({
   selector: 'app-manage-salary',
   templateUrl: './manage-salary.component.html',
   styleUrls: ['./manage-salary.component.css']
 })
 export class ManageSalaryComponent implements OnInit {
+
+  fileName = 'PayrollData.xlsx';
+
+  ExportToData(){
+    let data = document.getElementById('table_data')
+    const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(data)
+
+    const wb:XLSX.WorkBook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb,ws,'Sheet1')
+
+    XLSX.writeFile(wb,this.fileName)
+  }
+
+
   salarys: any[] = []
   searchText: any
   someData: any
@@ -55,7 +69,7 @@ export class ManageSalaryComponent implements OnInit {
 
     console.log("helo");
 
-    // const postData: any = {}
+    const postData: any = {}
 
     this.http.post<any>('http://localhost:5000/createOrder', someData).subscribe((response) => {
       console.log("response", response);
@@ -94,6 +108,7 @@ export class ManageSalaryComponent implements OnInit {
       console.log(response);
       console.log(options);
     }
+    
     options.modal.ondismiss = () => {
       console.log("Transaction cancelled");
     }

@@ -1,9 +1,7 @@
-<section class="body">
+<!-- <section class="body">
   <div class="container-fluid box-area">
     <form class="mx-auto " [formGroup]="loginForm" (submit)="submit()">
-      <!-- <div class="logo mb-2 mt-1">
-                <img width="250px" src="../../assets/img/favicons/android-chrome-512x512.png" class="img-fluid" >
-            </div> -->
+    
       <h2 class="text-center"  style="display: inline-flexbox;">Login</h2>
       
       <div class="form-floating mb-3">
@@ -23,5 +21,32 @@
       <button class="btn    btn-primary btn2 w-100 fs-6  " type="submit" >Login</button>
     </form>
   </div>
-</section>
+</section> -->
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<section class="body">
+
+  <div class="login-box">
+    <form [formGroup]="loginForm" (submit)="submit()">
+      <h2>Login</h2>
+      <div class="input-box">
+        <span class="icon">
+          <i class="fa-solid fa-envelope"></i>
+        </span>
+        <input type="email" required formControlName="email">
+        <label>Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon">
+          <i class="fa-solid fa-lock"></i>
+        </span>
+        <input type="password" required formControlName="password">
+        <label>Password</label>
+      </div>
+      <div class="remember-forget">
+        <label for=""><input type="checkbox">Remember Me </label>
+        <a href="#">Forget Password?</a>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</section>

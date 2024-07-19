@@ -147,11 +147,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['hiredAddress'].invalid  && multistep.controls['hiredAddress'].touched">
-                                                <p>Hired Location Required</p>
+                                                *ngIf="multistep.controls['Company'].invalid  && multistep.controls['Company'].touched">
+                                                <p> Company Name Required</p>
                                             </span>
                                             <input type="text" class="w-100 form-control border-2 py-2 mb-4"
-                                                placeholder="Hired Location" formControlName="hiredAddress">
+                                                placeholder="Company Name" formControlName="Company">
                                         </div>
                                     </div>
                                 </div>
@@ -160,6 +160,16 @@
                             <div class="bank-details" *ngIf="steper == 3">
                                 <div class="row">
                                     <h4 class="text-white mb-1">Bank Details</h4>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class=""
+                                                *ngIf="multistep.controls['accountHolder'].invalid  && multistep.controls['accountHolder'].touched">
+                                                <p>Image  Required</p>
+                                            </span>
+                                            <input type="file" class="w-100 form-control border-0 py-3 mb-4" placeholder="file"(change)="img_src($event)" >
+
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
@@ -247,11 +257,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class=""
-                                                *ngIf="multistep.controls['panCard'].invalid  && multistep.controls['panCard'].touched">
-                                                <p> PinCode Required</p>
+                                                *ngIf="multistep.controls['salary'].invalid  && multistep.controls['salary'].touched">
+                                                <p> Salary Required</p>
                                             </span>
-                                            <input type="text" placeholder="PanCard"
-                                                formControlName="panCard" class="border-2 py-2 mb-4 form-control">
+                                            <input type="text" placeholder="Salary"
+                                                formControlName="salary" class="border-2 py-2 mb-4 form-control">
                                         </div>
                                     </div>
 
@@ -272,7 +282,7 @@
                                         (click)="next()"   *ngIf="steper != 3">Next</button>
 
                                         <button type="submit" class="btn btn-outline-primary"
-                                          [disabled]="multistep.invalid"> Submit</button>
+                                        > Submit</button>
                                     </div>
 
                                 </div>
